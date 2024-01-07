@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "291f44c0-ae7e-4a52-b448-7919aa593f1f",
+		"name": "toodle_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19711957"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"ketan.khandelwal.1\",\n    \"password\":\"Ketan@1109\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{toodle}}/users/login",
+							"host": [
+								"{{toodle}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assignment",
+			"item": [
+				{
+					"name": "Create Assignment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IktldGFuIEtoYW5kZWx3YWwgVHV0b3IiLCJyb2xlIjoxLCJjcmVhdGVkX2F0IjoiMTcwMjUzNzA1MDM2NyIsInVwZGF0ZWRfYXQiOm51bGwsInN0YXR1cyI6MSwicGhvbmVfbm8iOiI3OTg1ODUwODM5IiwiZW1haWwiOiJrZXRhbmtoYW5kZWx3YWw3MEBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImtldGFuLmtoYW5kZWx3YWwuMSIsImlhdCI6MTcwMjU1MjUzNywiZXhwIjoxNzAyNjM4OTM3fQ.nHQpQJNVnN1bbLOqY1SlwVKK9O6ALuXZoOThXRDSX-M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\":\"hello world\",\n    \"published_at\":\"1860408572000\",\n    \"ending_at\":\"1234567890123\",\n    \"assigned_to\":[1,2]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{toodle}}/assignment/createAssignment",
+							"host": [
+								"{{toodle}}"
+							],
+							"path": [
+								"assignment",
+								"createAssignment"
+							]
+						},
+						"description": "published_at is epoch timestamp because data and time both will be given as publishing data.  \n  \nSame for ending_at.\n\nassigned_to contains ID of students who can submit this assignment"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Assignment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IktldGFuIEtoYW5kZWx3YWwgVHV0b3IiLCJyb2xlIjoxLCJjcmVhdGVkX2F0IjoiMTcwMjUzNzA1MDM2NyIsInVwZGF0ZWRfYXQiOm51bGwsInN0YXR1cyI6MSwicGhvbmVfbm8iOiI3OTg1ODUwODM5IiwiZW1haWwiOiJrZXRhbmtoYW5kZWx3YWw3MEBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImtldGFuLmtoYW5kZWx3YWwuMSIsImlhdCI6MTcwMjU1MjUzNywiZXhwIjoxNzAyNjM4OTM3fQ.nHQpQJNVnN1bbLOqY1SlwVKK9O6ALuXZoOThXRDSX-M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{toodle}}/assignment/deleteAssignment?assignment_id=13",
+							"host": [
+								"{{toodle}}"
+							],
+							"path": [
+								"assignment",
+								"deleteAssignment"
+							],
+							"query": [
+								{
+									"key": "assignment_id",
+									"value": "13"
+								}
+							]
+						},
+						"description": "It is a hard delete API because in the project there was no procedure to reactivate the assignment.  \n  \nDELETE ON CASCADE is Applied."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Assignment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IktldGFuIEtoYW5kZWx3YWwgVHV0b3IiLCJyb2xlIjoxLCJjcmVhdGVkX2F0IjoiMTcwMjUzNzA1MDM2NyIsInVwZGF0ZWRfYXQiOm51bGwsInN0YXR1cyI6MSwicGhvbmVfbm8iOiI3OTg1ODUwODM5IiwiZW1haWwiOiJrZXRhbmtoYW5kZWx3YWw3MEBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImtldGFuLmtoYW5kZWx3YWwuMSIsImlhdCI6MTcwMjU1MjUzNywiZXhwIjoxNzAyNjM4OTM3fQ.nHQpQJNVnN1bbLOqY1SlwVKK9O6ALuXZoOThXRDSX-M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"description\":\"This is your new assignment\",\n    \"published_at\":\"1702567796000\",\n    \"ending_at\":\"1702567796000\",\n    \"assignment_id\":18,\n    \"assigned_to\":[2,3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{toodle}}/assignment/updateAssignment",
+							"host": [
+								"{{toodle}}"
+							],
+							"path": [
+								"assignment",
+								"updateAssignment"
+							]
+						},
+						"description": "Tutor can update \"Description\", \"publishing time\" , ending time , assigned_to ID on the basis of assignment id"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Assignment Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IktldGFuIEtoYW5kZWx3YWwgVHV0b3IiLCJyb2xlIjoxLCJjcmVhdGVkX2F0IjoiMTcwMjUzNzA1MDM2NyIsInVwZGF0ZWRfYXQiOm51bGwsInN0YXR1cyI6MSwicGhvbmVfbm8iOiI3OTg1ODUwODM5IiwiZW1haWwiOiJrZXRhbmtoYW5kZWx3YWw3MEBnbWFpbC5jb20iLCJ1c2VybmFtZSI6ImtldGFuLmtoYW5kZWx3YWwuMSIsImlhdCI6MTcwMjU1MjUzNywiZXhwIjoxNzAyNjM4OTM3fQ.nHQpQJNVnN1bbLOqY1SlwVKK9O6ALuXZoOThXRDSX-M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{toodle}}/assignment/getAssignmentDetails?assignment_id=18",
+							"host": [
+								"{{toodle}}"
+							],
+							"path": [
+								"assignment",
+								"getAssignmentDetails"
+							],
+							"query": [
+								{
+									"key": "assignment_id",
+									"value": "18"
+								}
+							]
+						},
+						"description": "Assignment details are fetched on the basis of role derived by token.  \n  \nFE team need to provide assignment ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Submission",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktldGFuIFN0dWRlbnQiLCJyb2xlIjoyLCJjcmVhdGVkX2F0IjoiMTcwMjUzNzE5MjQxNyIsInVwZGF0ZWRfYXQiOm51bGwsInN0YXR1cyI6MSwicGhvbmVfbm8iOiI3OTg1ODUwODM5IiwiZW1haWwiOiJrZXRhblN0dWRlbnRAZ21haWwuY29tIiwidXNlcm5hbWUiOiJrZXRhbi5zdHVkZW50LjEiLCJpYXQiOjE3MDI2MTAwMDMsImV4cCI6MTcwMjY5NjQwM30.f-fQQsBMc8zT6faOqn3TLJUFIPpdx9oMR5YCbeeWSWg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"assignment_id\":18,\n    \"remark\":\"What is Nature\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{toodle}}/assignment/addSubmission",
+							"host": [
+								"{{toodle}}"
+							],
+							"path": [
+								"assignment",
+								"addSubmission"
+							]
+						},
+						"description": "Only Student can submit the assignment once."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Assignment Feed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IktldGFuIFN0dWRlbnQiLCJyb2xlIjoyLCJjcmVhdGVkX2F0IjoiMTcwMjUzNzE5MjQxNyIsInVwZGF0ZWRfYXQiOm51bGwsInN0YXR1cyI6MSwicGhvbmVfbm8iOiI3OTg1ODUwODM5IiwiZW1haWwiOiJrZXRhblN0dWRlbnRAZ21haWwuY29tIiwidXNlcm5hbWUiOiJrZXRhbi5zdHVkZW50LjEiLCJpYXQiOjE3MDI2MTAwMDMsImV4cCI6MTcwMjY5NjQwM30.f-fQQsBMc8zT6faOqn3TLJUFIPpdx9oMR5YCbeeWSWg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{toodle}}/assignment/getAssignmentFeed?assignment_status=1&submission_status=0",
+							"host": [
+								"{{toodle}}"
+							],
+							"path": [
+								"assignment",
+								"getAssignmentFeed"
+							],
+							"query": [
+								{
+									"key": "assignment_status",
+									"value": "1",
+									"description": "1 for Scheduled & 2 for OnGoing"
+								},
+								{
+									"key": "submission_status",
+									"value": "0",
+									"description": "0 For pending , 1 for submitted & 2 for overdue "
+								}
+							]
+						},
+						"description": "Get Assignment feed on the basis of role (Tutor or Student) .\n\nassignment_status is for both tutor and Student.  \nsubmission_status is only for student"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

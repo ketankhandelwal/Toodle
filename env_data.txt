@@ -1,0 +1,9 @@
+DB_USER= YOUR-DB-USER
+DB_PASSWORD= YOUR-DB-PASSWORD
+DB_DATABASE= toodle
+DB_HOST= localhost
+DIALECT= postgres
+DB_PORT= 5432
+NODE_ENV = local
+jwt_secret_key = toodleIsBest!nEduca@T!0
+expirationTime = 24h
